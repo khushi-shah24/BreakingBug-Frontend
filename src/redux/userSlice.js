@@ -317,6 +317,8 @@ export const {
     removeAllFromCart,
     fetchProductDetailsFromCart,
     updateCurrentUser,
+    setFilteredProducts,//**  this was not exported for usage in userhandle.js **
+    getCustomersListFailed //** this was not exported for usage in userhandle.js  **
     
 } = userSlice.actions;
 

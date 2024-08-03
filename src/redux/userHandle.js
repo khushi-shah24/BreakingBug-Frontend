@@ -49,8 +49,8 @@ export const addStuff = (address, fields) => async (dispatch) => {
 
     try {
         const result = await axios.post(`${process.env.REACT_APP_BASE_URL}/${address}`, fields, {
-            headers: { 'Content-Type': 'application/json' },---
-        });
+            headers: { 'Content-Type': 'application/json' },
+        });//**removed 3 hyphen**
 
         if (result.data.message) {
             dispatch(authFailed(result.data.message));
@@ -101,14 +101,16 @@ export const updateCustomer = (fields, id) => async (dispatch) => {
 };
 
         dispatch(stuffUpdated());
-
+        try
+        {
+           // ** Try block was missing  **
       } catch (error) {
 
         dispatch(getError(error));
 
     }
 
-    }
+// **Extra closing curly braces was removed.**
 
 export const getProductsbySeller = (id) => async (dispatch) => {
     dispatch(getRequest());

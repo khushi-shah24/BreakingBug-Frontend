@@ -1,12 +1,11 @@
 import { Divider, Box, Typography, Button, styled, Container } from '@mui/material';
 
-// import { Link, useNavigate } from 'react-router';
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
-import { Link } from 'react-router-dom';// Version conflicts in the library
+import { Link,useNavigate } from 'react-router-dom';// Version conflicts in the library
 
 const Slide = ({ products, title }) => {
-    const navigate = useNavigate()
+    const navigate = useNavigate()//** useNavigate() was not imported from react-router-dom **
 
     return (
         <Component>
