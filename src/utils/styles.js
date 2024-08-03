@@ -77,3 +77,11 @@ export const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 
 export const NavLogo = styled(Link)`
     display: flex;
 `;
+
+export const LightPurpleButton = styled(Button)`
+  // styles for the button
+`;//needed to be exported to be imported in cart.jsx file
+
+export const BasicButton = styled(Button)`
+  // styles for the button
+`; //needed to be exported to be imported in cart.jsx file

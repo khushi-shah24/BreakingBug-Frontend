@@ -49,13 +49,17 @@ const Navbar = () => {
 
     const [isCartOpen, setIsCartOpen] = React.useState(false);
 
-    // Cart
-    const handleOpen Cart = () => {
-        setIsCartOpen(true);
+    // Space present between variable names and cannot declare same variable/function name twice in the same scope .So merged into 1 function.
+    const handleCart = (open) => {
+        setIsCartOpen(open);
     };
 
     const handleOpenCart = () => {
-        setIsCartOpen(false);
+        handleCart(true);
+    };
+    
+    const handleCloseCart = () => {
+        handleCart(false);
     };
 
     // Navigation Menu

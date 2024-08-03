@@ -43,6 +43,12 @@ export const updateShippingDataInLocalStorage = (shippingData) => {
     localStorage.setItem('user', JSON.stringify(updatedUser));
 };
 
+// userSlice.js
+export const updateCustomer = (fields, id) => async (dispatch) => {
+    dispatch(updateCurrentUser(fields));
+    await axios.put(`${process.env.REACT_APP_BASE_URL}/CustomerUpdate/${id}`, fields);
+  };
+
 const userSlice = createSlice({
     name: 'user',
     initialState,
