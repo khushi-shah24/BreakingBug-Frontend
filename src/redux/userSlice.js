@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import jwtDecode from 'jwt-decode';
-
+import axios from 'axios'; // added import statement
 const initialState = {
     status: 'idle',
     loading: false,
