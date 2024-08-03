@@ -2,9 +2,9 @@ import { configureStore } from '@reduxjs/toolkit';
 import { userReducer } from './userSlice';
 
 const store = configureStore({
-    reducer={
+    reducer:{
         user: userReducer,
-    }
+    }//In javascript, when defining an object literal , the key values pairs 
 });
 
 export default store;

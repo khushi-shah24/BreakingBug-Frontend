@@ -1,8 +1,9 @@
 import { Divider, Box, Typography, Button, styled, Container } from '@mui/material';
 
-import { Link, useNavigate } from 'react-router';
+// import { Link, useNavigate } from 'react-router';
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
+import { Link } from 'react-router-dom';// Version conflicts in the library
 
 const Slide = ({ products, title }) => {
     const navigate = useNavigate()
@@ -79,7 +80,7 @@ const Component = styled(Box)`
 `;
 
 const Deal = styled(Box)`
-    display: flex;    
+    display: flex;    
     padding: 15px 20px;
 `
 
@@ -96,7 +97,7 @@ const ViewAllButton = styled(Button)`
     border-radius: 2px;
     font-size: 13px;
     &:hover {
-      background-color: #7a1ccb;
+        background-color: #7a1ccb;
     }
 `;
 
