@@ -10,17 +10,18 @@ import { addStuff } from '../redux/userHandle';
 
 const Products = ({}) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate(); // Define navigate 
 
   const itemsPerPage = 9;
 
-  const { currentRole, responseSearch } = useSelector();
+  const { currentRole, responseSearch } = useSelector((state) => state.user); //  pass the correct state
   const [currentPage, setCurrentPage] = useState(1);
   const [showPopup, setShowPopup] = useState(false);
   const [message, setMessage] = useState("");
 
   const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem + itemsPerPage;
-  const currentItems = (indexOfFirstItem, indexOfLastItem);
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage; // Corrected to subtract itemsPerPage
+  const currentItems = responseSearch.slice(indexOfFirstItem, indexOfLastItem); // Use slice to get the current items
 
   const handleAddToCart = (event, product) => {
     event.stopPropagation();
@@ -86,9 +87,11 @@ const Products = ({}) => {
 
       <Container sx={{ mt: 10, mb: 10, display: "flex", justifyContent: 'center', alignItems: "center" }}>
         <Pagination
-          count={Math.ceil(productData.length / itemsPerPage)}
+          count={Math.ceil(responseSearch.length / itemsPerPage)}// Use responseSearch to get the pagination count
           page={currentPage}
           color="secondary"
+          onChange={(event, value) => setCurrentPage(value)} 
+          // Handle pagination change
 
         />
       </Container>
