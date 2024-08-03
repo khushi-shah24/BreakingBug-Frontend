@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 const SideBar = () => {
 
     
-
+    const location = useLocation();// ** global location object was used so it was throwing error but now the userlocation object is used **
     const { currentRole } = useSelector(state => state.user);
 
     return (
