@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import {Table, TableBody, TableCell, TableContainer, TableRow, styled} from '@mui/material';
-
-const TableTemplate = ({columns, rows}) => {
+import {Table, TableBody, TableCell, TableContainer, TableRow, styled,tableCellClasses} from '@mui/material';
+const TableTemplate = ({ buttonHaver: ButtonHaver, columns, rows }) => {
+   // Accept buttonHaver as a prop
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   return (
@@ -26,14 +26,15 @@ const TableTemplate = ({columns, rows}) => {
               .slice(page * rowsPerPage, page === rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <StyledTableRow hover role="checkbox" tabIndex={+1} key={row.Id}>
+                  <StyledTableRow hover role="checkbox" tabIndex={+1} key={row.id}>//changed row.Id to row.id
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <StyledTableCell key={column.Id} align={column.align}>
+                        <StyledTableCell key={column.id} align={column.align}>
+                          //changed column.Id to column.id
                           {
                             column.format && typeof value === 'number'
-                              ? column.format(id)
+                              ? column.format(value)//changed column.format(Id) to column.format(value)
                               : value
                           }
                         </StyledTableCell>
