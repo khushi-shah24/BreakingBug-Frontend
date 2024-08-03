@@ -98,9 +98,9 @@ export const deleteStuff = (id, address) => async (dispatch) => {
 export const updateCustomer = (fields, id) => async (dispatch) => {
     dispatch(updateCurrentUser(fields));
     await axios.put(`${process.env.REACT_APP_BASE_URL}/CustomerUpdate/${id}`, fields);
-};
 
-        dispatch(stuffUpdated());
+
+        dispatch(stuffUpdated());//** code was written outside the braces of the export **
         try
         {
            // ** Try block was missing  **
@@ -109,7 +109,7 @@ export const updateCustomer = (fields, id) => async (dispatch) => {
         dispatch(getError(error));
 
     }
-
+};
 // **Extra closing curly braces was removed.**
 
 export const getProductsbySeller = (id) => async (dispatch) => {
@@ -161,7 +161,7 @@ export const getProductDetails = (id) => async (dispatch) => {
     }
 }
 
-export const getCustomers = (id) => async (dispatch) => {
+export const getCustomers = (id,address) => async (dispatch) => {//** Address was not passed as a parameter **
     dispatch(getRequest());
 
     try {

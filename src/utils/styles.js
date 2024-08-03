@@ -7,6 +7,7 @@ import {
     AppBar as MuiAppBar,
 } from "@mui/material";
 import { Link } from "react-scroll";
+import { Button } from '@mui/material';
 
 const drawerWidth = 240
 
