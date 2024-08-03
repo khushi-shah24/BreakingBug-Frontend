@@ -31,7 +31,7 @@ const OrderSummary = ({ handleNext, handleBack }) => {
     const totalQuantity = cartDetails.reduce((total, item) => total + item.quantity, 0);
     const totalOGPrice = cartDetails.reduce((total, item) => total + (item.quantity * item.price.mrp), 0);
     const totalNewPrice = cartDetails.reduce((total, item) => total + (item.quantity * item.price.cost), 0);
-
+    const totalamount = totalNewPrice;
     return (
         <React.Fragment>
             <Typography variant="h6" sx={{ fontWeight: 700 }} gutterBottom>
@@ -93,7 +93,7 @@ const OrderSummary = ({ handleNext, handleBack }) => {
                         <ListItem sx={{ py: 1, px: 0 }}>
                             <ListItemText primary="Discount" />
                             <Typography variant="subtitle1" sx={{ color: "green" }}>
-                                ₹{totalamount - totalNewPrice}
+                                ₹{totalamount - totalNewPrice}//** totalamount was not defined . **
                             </Typography>
                         </ListItem>
                         <ListItem sx={{ py: 1, px: 0 }}>

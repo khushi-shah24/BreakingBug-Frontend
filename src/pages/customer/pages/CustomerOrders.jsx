@@ -15,7 +15,7 @@ import { getSpecificProducts } from '../../../redux/userHandle';
 
 const CustomerOrders = () => {
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const { currentUser, loading, responseSpecificProducts } = useSelector(state => state.user);
 
@@ -27,7 +27,7 @@ const CustomerOrders = () => {
         { value: 'oldest', label: 'Oldest' },
         { value: 'newest', label: 'Newest' }
     ];
-
+    const specificProductData = useSelector(state => state.user.responseSpecificProducts);//** Importing the specificProductData variable from the Redux store **
     const [open, setOpen] = useState(null);
     const [selectedOption, setSelectedOption] = useState('newest');
 
@@ -111,7 +111,7 @@ const CustomerOrders = () => {
                             </Stack>
 
                             <Grid container spacing={3}>
-                                {specificProductData && specificProductData.map((product, index) => (
+                                {specificProductData && specificProductData.map((product, index) => (//** Error solved by importing specificproductdata directly from redux store **
                                     <Grid key={index} xs={12} sm={6} md={3}>
                                         <ProductCard product={product} />
                                     </Grid>
